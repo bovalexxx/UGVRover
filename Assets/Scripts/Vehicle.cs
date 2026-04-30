@@ -1,51 +1,57 @@
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UGVRover.Input;
+using UGVRover.Data;
+using Zenject;
 
-public class Vehicle : MonoBehaviour
+namespace UGVRover
 {
-    [SerializeField]
-    private Rigidbody _rb;
-    [SerializeField]
-    private float speed;
-    [SerializeField]
-    private ArticulationBody w_l1;
-    [SerializeField]
-    private ArticulationBody w_l2;
-    [SerializeField]
-    private ArticulationBody w_r1;
-    [SerializeField]
-    private ArticulationBody w_r2;
-
-    [SerializeField]
-    private InputAction cont;
-
-    private void Start()
+    public class Vehicle : MonoBehaviour
     {
-        
-    }
+        [Inject]
+        private IInputProvider _inputProvider;
 
-    public void Move(InputAction.CallbackContext context)
-    {
-        Vector2 move = context.ReadValue<Vector2>();
-        Debug.Log(move);
+        [Inject]
+        private ISettingsProvider _settingsProvider;
 
-        float left = speed * (move.y + move.x);
-        float right = speed * (move.y - move.x);
+        private VehicleSettings _settings;
+        [SerializeField]
+        private ArticulationBody w_l1;
+        [SerializeField]
+        private ArticulationBody w_l2;
+        [SerializeField]
+        private ArticulationBody w_r1;
+        [SerializeField]
+        private ArticulationBody w_r2;
+
+        private void Start()
+        {
+            _inputProvider.OnMove += Move;
+            _settings = _settingsProvider.GetSettings();
+        }
+
+        public void Move(Vector2 direction)
+        {
+            Vector2 move = direction;
+            Debug.Log(move);
+
+            float left = _settings.speed * (move.y + move.x);
+            float right = _settings.speed * (move.y - move.x);
 
 
-        var drive = w_l1.xDrive;
-        drive.targetVelocity = left;
-        w_l1.xDrive = drive;
-        drive = w_l2.xDrive;
-        drive.targetVelocity = left;
-        w_l2.xDrive = drive;
+            var drive = w_l1.xDrive;
+            drive.targetVelocity = left;
+            w_l1.xDrive = drive;
+            drive = w_l2.xDrive;
+            drive.targetVelocity = left;
+            w_l2.xDrive = drive;
 
-        var drive2 = w_r1.xDrive;
-        drive2.targetVelocity = right;
-        w_r1.xDrive = drive2;
-        drive2 = w_r2.xDrive;
-        drive2.targetVelocity = right;
-        w_r2.xDrive = drive2;
+            var drive2 = w_r1.xDrive;
+            drive2.targetVelocity = right;
+            w_r1.xDrive = drive2;
+            drive2 = w_r2.xDrive;
+            drive2.targetVelocity = right;
+            w_r2.xDrive = drive2;
+        }
     }
 }
