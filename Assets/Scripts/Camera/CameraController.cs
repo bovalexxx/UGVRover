@@ -14,6 +14,7 @@ namespace UGVRover.Camera
         {
             if (cameraModes == null) return;
             if ((int)mode >= cameraModes.Count) return;
+
             cameraModes[(int)_currentMode].SetActive(false);
             cameraModes[(int)mode].SetActive(true);
             _currentMode = mode;

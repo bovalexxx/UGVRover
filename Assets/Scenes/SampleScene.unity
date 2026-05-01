@@ -196,6 +196,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::UGVRover.UI.UIManager
   targetVelocitySlider: {fileID: 869311941}
   invertBackMovementToggle: {fileID: 1739934171}
+  turnSharpnessSlider: {fileID: 1384682709}
   cameraModeToggle: {fileID: 673103021}
   cameraController: {fileID: 1027164743}
 --- !u!4 &44438254
@@ -228,7 +229,7 @@ ArticulationBody:
   m_Enabled: 1
   serializedVersion: 6
   m_Mass: 4
-  m_ParentAnchorPosition: {x: 0.7310009, y: -0.15400004, z: -0.052999496}
+  m_ParentAnchorPosition: {x: 0.7310009, y: -0.15399998, z: -0.052999496}
   m_ParentAnchorRotation: {x: 0, y: 0, z: 0, w: 1}
   m_AnchorPosition: {x: 0, y: 0, z: 0}
   m_AnchorRotation: {x: 0, y: -0.70710677, z: 0, w: 0.70710677}
@@ -291,7 +292,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 85590070}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: b704679a2a0064ea79dbd3c5fe3e8521, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -328,7 +329,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 157839483}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: b704679a2a0064ea79dbd3c5fe3e8521, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -353,7 +354,7 @@ ArticulationBody:
   m_Enabled: 1
   serializedVersion: 6
   m_Mass: 4
-  m_ParentAnchorPosition: {x: -0.24500084, y: -0.15400004, z: -0.052999496}
+  m_ParentAnchorPosition: {x: -0.24500084, y: -0.15399998, z: -0.052999496}
   m_ParentAnchorRotation: {x: 0, y: 0, z: 0, w: 1}
   m_AnchorPosition: {x: 0, y: 0, z: 0}
   m_AnchorRotation: {x: 0, y: 0.70710677, z: 0, w: 0.70710677}
@@ -1652,7 +1653,7 @@ GameObject:
   - component: {fileID: 869311940}
   - component: {fileID: 869311941}
   m_Layer: 5
-  m_Name: Slider
+  m_Name: SliderTargetVelocity
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1802,7 +1803,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Target Velocity
+  m_Text: Turn sharpness
 --- !u!222 &887908372
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2156,7 +2157,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1104328655}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: b704679a2a0064ea79dbd3c5fe3e8521, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -2181,7 +2182,7 @@ ArticulationBody:
   m_Enabled: 1
   serializedVersion: 6
   m_Mass: 4
-  m_ParentAnchorPosition: {x: 0.7310009, y: -0.16000009, z: -0.7290001}
+  m_ParentAnchorPosition: {x: 0.7310009, y: -0.16, z: -0.7290001}
   m_ParentAnchorRotation: {x: 0, y: 0, z: 0, w: 1}
   m_AnchorPosition: {x: 0, y: 0, z: 0}
   m_AnchorRotation: {x: 0, y: -0.70710677, z: 0, w: 0.70710677}
@@ -2532,7 +2533,7 @@ GameObject:
   - component: {fileID: 1384682708}
   - component: {fileID: 1384682709}
   m_Layer: 5
-  m_Name: Slider
+  m_Name: SliderTurnSharpness
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2704,7 +2705,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1495561996}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: b704679a2a0064ea79dbd3c5fe3e8521, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -2729,7 +2730,7 @@ ArticulationBody:
   m_Enabled: 1
   serializedVersion: 6
   m_Mass: 4
-  m_ParentAnchorPosition: {x: -0.24500084, y: -0.16000009, z: -0.7290001}
+  m_ParentAnchorPosition: {x: -0.24500084, y: -0.16, z: -0.7290001}
   m_ParentAnchorRotation: {x: 0, y: 0, z: 0, w: 1}
   m_AnchorPosition: {x: 0, y: 0, z: 0}
   m_AnchorRotation: {x: 0, y: 0.70710677, z: 0, w: 0.70710677}

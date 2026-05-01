@@ -20,8 +20,12 @@ namespace UGVRover.Core
         {
             Vector2 move = inputInterpreter.CalculateInput(input);
             float turn = move.x;
-            float left = _settings.TargetVelocity * (move.y + turn);
-            float right = _settings.TargetVelocity * (move.y - turn);
+            float drive = move.y;
+
+            if (_settings.InvertBackMovement && drive < 0) turn *= -1;
+
+            float left = _settings.TargetVelocity * (drive + turn);
+            float right = _settings.TargetVelocity * (drive - turn);
 
             Debug.Log(left + "   " + right);
 
@@ -57,6 +61,8 @@ namespace UGVRover.Core
         public override void PassSettings(Settings settings)
         {
             _settings = (VehicleSettings)settings;
+
+            inputInterpreter.SetInfluence(_settings.TurnSharpness);
 
             UpdateSettings();
         }

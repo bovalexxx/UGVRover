@@ -7,9 +7,6 @@ namespace UGVRover.Data
     {
         public VehicleSettings _settings;
 
-        //private const string configPath = "config.json";
-        //private string absolutePath = Path.Combine(Application.streamingAssetsPath, configPath);
-
         public Settings GetSettings() => _settings;
 
         public JsonSettingsProvider(VehicleSettings defaultSettings, string configPath)

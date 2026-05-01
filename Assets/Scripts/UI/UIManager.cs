@@ -13,6 +13,8 @@ namespace UGVRover.UI
         [SerializeField]
         private Toggle invertBackMovementToggle;
         [SerializeField]
+        private Slider turnSharpnessSlider;
+        [SerializeField]
         private Toggle cameraModeToggle;
 
         [Inject]
@@ -31,6 +33,10 @@ namespace UGVRover.UI
 
             cameraModeToggle.onValueChanged.AddListener(UpdateCameraMode);
             invertBackMovementToggle.onValueChanged.AddListener(InvertBackMovement);
+            invertBackMovementToggle.isOn = vehicleSettings.InvertBackMovement;
+
+            turnSharpnessSlider.onValueChanged.AddListener(UpdateTurnSharpness);
+            turnSharpnessSlider.value = vehicleSettings.TurnSharpness;
         }
         private void UpdateTargetVelocity(float val)
         {
@@ -44,11 +50,16 @@ namespace UGVRover.UI
         {
             vehicleSettings.InvertBackMovement = invert;
         }
+        private void UpdateTurnSharpness(float val)
+        {
+            vehicleSettings.TurnSharpness = val;
+        }
         private void OnDestroy()
         {
             targetVelocitySlider.onValueChanged.RemoveListener(UpdateTargetVelocity);
             cameraModeToggle.onValueChanged.RemoveListener(UpdateCameraMode);
             invertBackMovementToggle.onValueChanged.RemoveListener(InvertBackMovement);
+            turnSharpnessSlider.onValueChanged.RemoveListener(UpdateTurnSharpness);
         }
     }
 }
