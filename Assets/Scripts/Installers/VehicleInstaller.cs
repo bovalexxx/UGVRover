@@ -12,7 +12,11 @@ namespace UGVRover.Installers
         public override void InstallBindings()
         {
             Container.Bind<IInputProvider>().To<UnityInputProvider>().AsSingle();
+#if !UNITY_EDITOR
             Container.Bind<ISettingsProvider>().FromInstance(roverSettings).AsSingle();
+#else
+            Container.Bind<ISettingsProvider>().To<JsonSettingsProvider>().AsSingle().WithArguments(roverSettings.GetSettings());
+#endif
         }
     }
 }

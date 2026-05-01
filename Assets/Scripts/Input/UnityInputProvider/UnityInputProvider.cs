@@ -8,8 +8,6 @@ namespace UGVRover.Input
     {
         private InputSystemActions _inputActions;
 
-        public Vector2 MoveDirection => _inputActions.Player.Move.ReadValue<Vector2>();
-
         public event Action<Vector2> OnMove;
 
         public UnityInputProvider()
