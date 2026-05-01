@@ -6,7 +6,7 @@ using Zenject;
 
 namespace UGVRover
 {
-    public class Vehicle : MonoBehaviour
+    public class VehicleController : MonoBehaviour
     {
         [Inject]
         private IInputProvider _inputProvider;
@@ -15,6 +15,7 @@ namespace UGVRover
         private ISettingsProvider _settingsProvider;
 
         private VehicleSettings _settings;
+
         [SerializeField]
         private ArticulationBody w_l1;
         [SerializeField]
@@ -27,7 +28,7 @@ namespace UGVRover
         private void Start()
         {
             _inputProvider.OnMove += Move;
-            _settings = _settingsProvider.GetSettings();
+            _settings = (VehicleSettings)_settingsProvider.GetSettings();
         }
 
         public void Move(Vector2 direction)
@@ -35,8 +36,8 @@ namespace UGVRover
             Vector2 move = direction;
             Debug.Log(move);
 
-            float left = _settings.speed * (move.y + move.x);
-            float right = _settings.speed * (move.y - move.x);
+            float left = _settings.Speed * (move.y + move.x);
+            float right = _settings.Speed * (move.y - move.x);
 
 
             var drive = w_l1.xDrive;

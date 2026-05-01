@@ -7,23 +7,23 @@ namespace UGVRover.Data
     {
         public VehicleSettings _settings;
 
-        private const string configPath = "config.json";
-        private string absolutePath = Path.Combine(Application.streamingAssetsPath, configPath);
+        //private const string configPath = "config.json";
+        //private string absolutePath = Path.Combine(Application.streamingAssetsPath, configPath);
 
-        public VehicleSettings GetSettings() => _settings;
+        public Settings GetSettings() => _settings;
 
-        public JsonSettingsProvider(VehicleSettings defaultSettings)
+        public JsonSettingsProvider(VehicleSettings defaultSettings, string configPath)
         {
-            if (File.Exists(absolutePath))
+            if (File.Exists(configPath))
             {
-                string json = File.ReadAllText(absolutePath);
+                string json = File.ReadAllText(configPath);
                 VehicleSettings configData = JsonUtility.FromJson<VehicleSettings>(json);
                 _settings = configData;
             }
             else
             {
                 string json = JsonUtility.ToJson(defaultSettings);
-                File.WriteAllText(absolutePath, json);
+                File.WriteAllText(configPath, json);
                 _settings = defaultSettings;
             }
         }

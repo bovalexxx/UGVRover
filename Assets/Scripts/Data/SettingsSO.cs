@@ -5,8 +5,8 @@ namespace UGVRover.Data
     [CreateAssetMenu(menuName = "UGVRover/Rover settings")]
     public class SettingsSO : ScriptableObject, ISettingsProvider
     {
-        public VehicleSettings settings;
+        public VehicleSettings _settings;
 
-        public VehicleSettings GetSettings() => settings;
+        public Settings GetSettings() => _settings;
     }
 }
