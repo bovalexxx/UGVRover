@@ -1,1 +1,1 @@
-{"speed":1000.0}
+{"targetVelocity":1000.0,"maxMotorForce":300.0}

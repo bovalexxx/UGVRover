@@ -21,6 +21,7 @@ namespace UGVRover.Installers
             string configAbsolutePath = Path.Combine(Application.streamingAssetsPath, gameSettings.ConfigName);
             Container.Bind<ISettingsProvider>().To<JsonSettingsProvider>().AsSingle().WithArguments(roverSettingsSO.GetSettings(), configAbsolutePath);
 #endif
+            Container.Bind<InputInterpreter>().To<DifferentialDriveInputInterpreter>().AsSingle();
         }
     }
 }

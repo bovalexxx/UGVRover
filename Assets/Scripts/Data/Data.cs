@@ -8,9 +8,25 @@ namespace UGVRover.Data
     [Serializable]
     public class VehicleSettings : Settings
     {
-        [SerializeField] private float speed;
+        [SerializeField] private float targetVelocity;
+        [SerializeField] private float maxMotorForce;
+        [SerializeField] private bool invertBackMovement;
 
-        public float Speed => speed;
+        public float TargetVelocity
+        {
+            get { return targetVelocity; }
+            set { targetVelocity = value; }
+        }
+        public float MaxMotorForce
+        {
+            get { return maxMotorForce; }
+            set { maxMotorForce = value; }
+        }
+        public bool InvertBackMovement
+        {
+            get { return invertBackMovement; }
+            set { invertBackMovement = value; }
+        }
     }
     [Serializable]
     public class GameSettings : Settings
