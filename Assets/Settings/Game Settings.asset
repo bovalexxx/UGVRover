@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dfb1cbdbce3584df4a99b93b171f549a, type: 3}
-  m_Name: P3-ACE DEAL Settings
-  m_EditorClassIdentifier: Assembly-CSharp::UGVRover.Data.SettingsSO
-  settings:
-    speed: 0
+  m_Script: {fileID: 11500000, guid: ff9b8fc22e41d4a75b9bf8506029abfa, type: 3}
+  m_Name: Game Settings
+  m_EditorClassIdentifier: Assembly-CSharp::UGVRover.Data.GameSettingsSO
+  _settings:
+    congfigName: config.json
