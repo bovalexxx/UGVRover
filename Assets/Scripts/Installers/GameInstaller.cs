@@ -14,8 +14,8 @@ namespace UGVRover.Installers
         public override void InstallBindings()
         {
             Container.Bind<IInputProvider>().To<UnityInputProvider>().AsSingle();
-#if !UNITY_EDITOR
-            Container.Bind<ISettingsProvider>().FromInstance(roverSettings).AsSingle();
+#if UNITY_EDITOR
+            Container.Bind<ISettingsProvider>().FromInstance(roverSettingsSO).AsSingle();
 #else
             GameSettings gameSettings = (GameSettings)gameSettingsSO.GetSettings();
             string configAbsolutePath = Path.Combine(Application.streamingAssetsPath, gameSettings.ConfigName);

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: P3-ACE DEAL Settings
   m_EditorClassIdentifier: Assembly-CSharp::UGVRover.Data.SettingsSO
   _settings:
-    targetVelocity: 1500
+    targetVelocity: 1286.25
     maxMotorForce: 500
-    turnSharpness: 0.66
+    turnEvenness: 0.642
     invertBackMovement: 1
