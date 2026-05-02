@@ -36,7 +36,7 @@ namespace UGVRover.UI
             invertBackMovementToggle.isOn = vehicleSettings.InvertBackMovement;
 
             turnSharpnessSlider.onValueChanged.AddListener(UpdateTurnSharpness);
-            turnSharpnessSlider.value = vehicleSettings.TurnSharpness;
+            turnSharpnessSlider.value = vehicleSettings.TurnEvenness;
         }
         private void UpdateTargetVelocity(float val)
         {
@@ -52,7 +52,7 @@ namespace UGVRover.UI
         }
         private void UpdateTurnSharpness(float val)
         {
-            vehicleSettings.TurnSharpness = val;
+            vehicleSettings.TurnEvenness = val;
         }
         private void OnDestroy()
         {

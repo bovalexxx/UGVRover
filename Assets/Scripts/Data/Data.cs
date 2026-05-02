@@ -12,8 +12,8 @@ namespace UGVRover.Data
         [SerializeField] private float targetVelocity;
         [Range(100, 20000)]
         [SerializeField] private float maxMotorForce;
-        [Range(0, 1f)]
-        [SerializeField] private float turnSharpness;
+        [Range(0, 0.9f)]
+        [SerializeField] private float turnEvenness;
         [SerializeField] private bool invertBackMovement;
 
         public float TargetVelocity
@@ -31,10 +31,10 @@ namespace UGVRover.Data
             get { return invertBackMovement; }
             set { invertBackMovement = value; }
         }
-        public float TurnSharpness
+        public float TurnEvenness
         {
-            get { return turnSharpness; }
-            set { turnSharpness = value; }
+            get { return turnEvenness; }
+            set { turnEvenness = value; }
         }
     }
     [Serializable]

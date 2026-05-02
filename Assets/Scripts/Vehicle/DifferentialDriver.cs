@@ -27,7 +27,8 @@ namespace UGVRover.Core
             float left = _settings.TargetVelocity * (drive + turn);
             float right = _settings.TargetVelocity * (drive - turn);
 
-            Debug.Log(left + "   " + right);
+            Debug.Log("Input: " + move);
+            Debug.Log("Wheels [left, right]: " + "[" + left + ", " + right + "]");
 
             foreach(ArticulationBody x in leftWheels)
             {
@@ -62,7 +63,7 @@ namespace UGVRover.Core
         {
             _settings = (VehicleSettings)settings;
 
-            inputInterpreter.SetInfluence(_settings.TurnSharpness);
+            inputInterpreter.SetInfluence(_settings.TurnEvenness);
 
             UpdateSettings();
         }
